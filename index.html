@@ -5,18 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090f1d">
 <title>harpalyke</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="logo.png" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/nunito-latin.woff2" crossorigin>
 <style>
+  /* Lokale Schriften (Latin-Subset, woff2) */
+  @font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400 700;   /* variable Schrift: deckt 400, 600 und 700 ab */
+    font-display: swap;
+    src: url("fonts/nunito-latin.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Bangers";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/bangers-latin.woff2") format("woff2");
+  }
   :root {
     --nacht: #090f1d;          /* Hintergrund des Logos */
-    --nacht-hell: #121a30;     /* Flächen auf dem Hintergrund */
-    --linie: #26304c;          /* feine Rahmen */
     --creme: #f2efe8;          /* Schriftfarbe des Logos */
     --creme-gedimmt: #aeb0b8;
     --orange: #e08b3b;         /* Akzent aus dem Logo */
-    --ink: #090f1d; --gelb: #ffd23f; --rot: #c8452c;
+    --ink: #090f1d; --gelb: #ffd23f;
+    --logo-breite: min(92vw, 1000px);
+    --comic: "Bangers", "Comic Sans MS", "Chalkboard SE", Impact, sans-serif;
   }
   * { box-sizing: border-box; }
   html { height: 100%; background: var(--nacht); }
@@ -86,7 +100,7 @@
   }
   @keyframes erscheinen { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-  .logo { width: min(92vw, 1000px); height: auto; display: block; }
+  .logo { width: var(--logo-breite); height: auto; display: block; }
 
   .linie { width: 3.5rem; height: 3px; border-radius: 3px; background: var(--orange); margin: 1.75rem 0 1.5rem; }
 
@@ -105,7 +119,6 @@
   .info {
     /* gleiche Breite wie das Logo; linker Rand beginnt beim "h" im Logo.
        --h-anteil = Abstand vom linken Logo-Rand bis zum "h" (0 = ganz links, 1 = ganz rechts) */
-    --logo-breite: min(92vw, 1000px);
     --h-anteil: 0.3148; /* gemessen: "h" beginnt bei 811 von 2576 px */
     width: var(--logo-breite);
     margin-top: 2.5rem;
@@ -144,7 +157,7 @@
   .puff { position: absolute; left: 50%; bottom: 0; width: 38px; height: 38px; margin-left: -19px; border-radius: 50%;
           background: var(--creme); border: 4px solid #2b3552; box-shadow: inset -6px -6px 0 rgba(43,53,82,.28); }
   .zaehler { position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); margin-bottom: 1.2rem;
-             font: 400 clamp(2.6rem, 8vw, 4.5rem)/1 "Bangers", "Comic Sans MS", "Chalkboard SE", Impact, sans-serif;
+             font: 400 clamp(2.6rem, 8vw, 4.5rem)/1 var(--comic);
              color: var(--gelb); -webkit-text-stroke: 2px var(--ink); paint-order: stroke fill;
              text-shadow: 4px 4px 0 var(--orange); }
   .knall { position: absolute; right: 100%; bottom: 55%; width: clamp(120px, 20vw, 190px); aspect-ratio: 1.25;
@@ -152,7 +165,7 @@
            filter: drop-shadow(5px 5px 0 var(--orange)); }
   .knall span { display: grid; place-items: center; width: 100%; height: 100%; background: var(--gelb);
                 clip-path: polygon(50% 0,60% 18%,80% 5%,78% 28%,100% 30%,85% 48%,100% 65%,78% 70%,82% 95%,60% 82%,50% 100%,40% 82%,18% 95%,22% 70%,0 65%,15% 48%,0 30%,22% 28%,20% 5%,40% 18%);
-                font: 400 clamp(1.1rem, 3vw, 1.7rem)/1 "Bangers", "Comic Sans MS", "Chalkboard SE", Impact, sans-serif;
+                font: 400 clamp(1.1rem, 3vw, 1.7rem)/1 var(--comic);
                 color: var(--ink); letter-spacing: .04em; }
   @media (prefers-reduced-motion: reduce) { main { animation: none; } .stern { animation: none; opacity: .6; } #flame, .wackeln { animation: none; } }
 </style>
@@ -160,7 +173,7 @@
 <body>
   <div class="sterne" id="sterne" aria-hidden="true"></div>
   <main>
-    <img class="logo" src="logo.png" alt="harpalyke – logo with a striped planet on an orbit">
+    <img class="logo" src="logo.png" width="2576" height="773" fetchpriority="high" decoding="async" alt="harpalyke – logo with a striped planet on an orbit">
     <div class="linie"></div>
     <h1>Welcome!</h1>
     <p class="hinweis">This is a private page for testing purposes only.</p>
@@ -185,7 +198,7 @@
     <div class="pad">
       <div class="zaehler" id="zaehler" aria-hidden="true"></div>
       <div class="knall" id="knall" aria-hidden="true"><span>WHOOSH!</span></div>
-      <svg id="rocket" viewBox="0 0 100 220" role="button" tabindex="0" aria-label="Rocket – click to launch again">
+      <svg id="rocket" viewBox="0 0 100 220" role="button" tabindex="0" aria-label="Rocket – click to launch">
         <g id="flame">
           <path d="M30 148 Q50 225 70 148 Z" fill="#e08b3b" stroke="#090f1d" stroke-width="4" stroke-linejoin="round"/>
           <path d="M40 148 Q50 195 60 148 Z" fill="#ffd23f"/>
@@ -203,59 +216,56 @@
 
   <script>
   // Sterne erzeugen: zufällige Position, Größe, Tempo und Verzögerung
-  (function () {
-    var box = document.getElementById("sterne");
-    var anzahl = Math.min(90, Math.round(window.innerWidth * window.innerHeight / 14000));
-    for (var i = 0; i < anzahl; i++) {
-      var s = document.createElement("span"), r = Math.random();
-      var d = 1.5 + Math.random() * 2.5;
+  (() => {
+    const box = document.getElementById("sterne");
+    const frag = document.createDocumentFragment();
+    const anzahl = Math.min(90, Math.round(innerWidth * innerHeight / 14000));
+    for (let i = 0; i < anzahl; i++) {
+      const s = document.createElement("span"), r = Math.random(), d = 1.5 + Math.random() * 2.5;
       s.className = "stern" + (r < 0.18 ? " warm" : "") + (r > 0.9 ? " gross" : "");
-      s.style.left = (Math.random() * 100) + "%";
-      s.style.top = (Math.random() * 100) + "%";
-      s.style.width = s.style.height = d + "px";
-      s.style.setProperty("--dauer", (2 + Math.random() * 4) + "s");
-      s.style.setProperty("--verzoegerung", (-Math.random() * 6) + "s");
-      box.appendChild(s);
+      s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${d}px;height:${d}px;` +
+        `--dauer:${2 + Math.random() * 4}s;--verzoegerung:${-Math.random() * 6}s`;
+      frag.appendChild(s);
     }
+    box.appendChild(frag);
   })();
 
   // E-Mail-Adresse erst im Browser zusammensetzen (steht nicht im Quelltext)
-  (function () {
-    var teile = ["ofni", "ekylaprah", "ue"].map(function (t) { return t.split("").reverse().join(""); });
-    var adresse = teile[0] + String.fromCharCode(64) + teile[1] + String.fromCharCode(46) + teile[2];
-    var a = document.createElement("a");
+  (() => {
+    const r = t => [...t].reverse().join(""), c = String.fromCharCode;
+    const adresse = r("ofni") + c(64) + r("ekylaprah") + c(46) + r("ue");
+    const a = document.createElement("a");
     a.href = "mailto:" + adresse;
     a.textContent = adresse;
-    var ziel = document.getElementById("kontakt");
-    ziel.textContent = "";
-    ziel.appendChild(a);
+    document.getElementById("kontakt").replaceChildren(a);
   })();
 
-  (function () {
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var rocket = document.getElementById("rocket"),
-        pad = rocket.parentNode,
-        zaehler = document.getElementById("zaehler"),
-        knall = document.getElementById("knall"),
-        busy = false;
-    var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+  // Comic-Rakete
+  (() => {
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rocket = document.getElementById("rocket"),
+          pad = rocket.parentNode,
+          zaehler = document.getElementById("zaehler"),
+          knall = document.getElementById("knall");
+    let busy = false;
+    const wait = ms => new Promise(r => setTimeout(r, ms));
 
     function puff() {
-      var p = document.createElement("div");
+      const p = document.createElement("div");
       p.className = "puff";
       pad.appendChild(p);
-      var dx = (Math.random() - 0.5) * 150, s = 1.4 + Math.random() * 1.6;
+      const dx = (Math.random() - 0.5) * 150, s = 1.4 + Math.random() * 1.6;
       p.animate([
         { transform: "translate(0,0) scale(.4)", opacity: 1 },
-        { transform: "translate(" + dx + "px,-" + (10 + Math.random() * 40) + "px) scale(" + s + ")", opacity: 0 }
-      ], { duration: 1100 + Math.random() * 500, easing: "ease-out" }).onfinish = function () { p.remove(); };
+        { transform: `translate(${dx}px,-${10 + Math.random() * 40}px) scale(${s})`, opacity: 0 }
+      ], { duration: 1100 + Math.random() * 500, easing: "ease-out" }).onfinish = () => p.remove();
     }
 
     async function launch() {
       if (busy) return;
       busy = true;
       rocket.classList.add("wackeln");
-      for (var n = 60; n > 0; n--) { zaehler.textContent = n; await wait(650); }
+      for (let n = 60; n > 0; n--) { zaehler.textContent = n; await wait(650); }
       zaehler.textContent = "";
       rocket.classList.remove("wackeln");
       rocket.classList.add("zuendung");
@@ -265,12 +275,12 @@
         { opacity: 1, transform: "rotate(-10deg) scale(1)", offset: .7 },
         { opacity: 0, transform: "rotate(-10deg) scale(1.05)" }
       ], { duration: 1800, fill: "forwards" });
-      var smoke = setInterval(puff, 70);
-      setTimeout(function () { clearInterval(smoke); }, 1500);
-      var up = pad.getBoundingClientRect().bottom + 260;
+      const smoke = setInterval(puff, 70);
+      setTimeout(() => clearInterval(smoke), 1500);
+      const up = pad.getBoundingClientRect().bottom + 260;
       await rocket.animate([
         { transform: "translateY(0)" },
-        { transform: "translateY(-" + up + "px) rotate(2deg)" }
+        { transform: `translateY(-${up}px) rotate(2deg)` }
       ], { duration: 2400, easing: "cubic-bezier(.55,0,1,.55)", fill: "forwards" }).finished;
       rocket.classList.remove("zuendung");
       await wait(1200);
@@ -278,7 +288,7 @@
     }
 
     rocket.addEventListener("click", launch);
-    rocket.addEventListener("keydown", function (e) {
+    rocket.addEventListener("keydown", e => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); launch(); }
     });
     if (!reduce) setTimeout(launch, 900);
