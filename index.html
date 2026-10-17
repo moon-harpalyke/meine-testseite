@@ -265,7 +265,7 @@
       if (busy) return;
       busy = true;
       rocket.classList.add("wackeln");
-      for (let n = 60; n > 0; n--) { zaehler.textContent = n; await wait(650); }
+      for (let n = 20; n > 0; n--) { zaehler.textContent = n; await wait(650); }
       zaehler.textContent = "";
       rocket.classList.remove("wackeln");
       rocket.classList.add("zuendung");
