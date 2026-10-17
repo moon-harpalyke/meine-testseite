@@ -143,9 +143,7 @@
       ], { duration: 2400, easing: "cubic-bezier(.55,0,1,.55)", fill: "forwards" }).finished;
       rocket.classList.remove("zuendung");
       await wait(1200);
-      rocket.getAnimations().forEach(function (a) { a.cancel(); });
-      rocket.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 600 });
-      busy = false;
+      rocket.style.display = "none";
     }
 
     rocket.addEventListener("click", launch);
