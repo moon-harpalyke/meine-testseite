@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090f1d">
 <title>harpalyke</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" as="image" href="logo.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/nunito-latin.woff2" crossorigin>
 <style>
@@ -265,7 +268,7 @@
       if (busy) return;
       busy = true;
       rocket.classList.add("wackeln");
-      for (let n = 20; n > 0; n--) { zaehler.textContent = n; await wait(650); }
+      for (let n = 60; n > 0; n--) { zaehler.textContent = n; await wait(650); }
       zaehler.textContent = "";
       rocket.classList.remove("wackeln");
       rocket.classList.add("zuendung");
