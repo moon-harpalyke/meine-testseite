@@ -248,7 +248,7 @@
       if (busy) return;
       busy = true;
       rocket.classList.add("wackeln");
-      for (var n = 10; n > 0; n--) { zaehler.textContent = n; await wait(650); }
+      for (var n = 100; n > 0; n--) { zaehler.textContent = n; await wait(650); }
       zaehler.textContent = "";
       rocket.classList.remove("wackeln");
       rocket.classList.add("zuendung");
