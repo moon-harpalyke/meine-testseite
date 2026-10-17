@@ -3,48 +3,128 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090f1d">
 <title>harpalyke</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --nacht: #090f1d;   /* Hintergrund des Logos */
-    --creme: #f2efe8;   /* Schriftfarbe des Logos */
-    --orange: #e08b3b;  /* Akzent aus Logo (Umlaufbahn, "l") */
-    --creme-gedimmt: #a9a79f;
+    --nacht: #090f1d;          /* Hintergrund des Logos */
+    --nacht-hell: #121a30;     /* Flächen auf dem Hintergrund */
+    --linie: #26304c;          /* feine Rahmen */
+    --creme: #f2efe8;          /* Schriftfarbe des Logos */
+    --creme-gedimmt: #aeb0b8;
+    --orange: #e08b3b;         /* Akzent aus dem Logo */
+    --ink: #090f1d; --gelb: #ffd23f; --rot: #c8452c;
   }
   * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
+  html { height: 100%; background: var(--nacht); }
   body {
-    background: var(--nacht);
+    min-height: 100%;
+    margin: 0;
     color: var(--creme);
-    font-family: "Avenir Next", "Nunito", "Varela Round", "Segoe UI", system-ui, sans-serif;
+    font-family: "Nunito", "Avenir Next", "Varela Round", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    /* Sternenhimmel + warmer Schein hinter dem Logo */
+    background:
+      radial-gradient(1.2px 1.2px at 8% 14%, rgba(242,239,232,.8), transparent),
+      radial-gradient(1px 1px at 17% 71%, rgba(242,239,232,.55), transparent),
+      radial-gradient(1.6px 1.6px at 26% 36%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 34% 88%, rgba(242,239,232,.5), transparent),
+      radial-gradient(1.4px 1.4px at 43% 9%, rgba(242,239,232,.75), transparent),
+      radial-gradient(1px 1px at 52% 57%, rgba(242,239,232,.45), transparent),
+      radial-gradient(1.8px 1.8px at 61% 82%, rgba(224,139,59,.7), transparent),
+      radial-gradient(1px 1px at 69% 22%, rgba(242,239,232,.6), transparent),
+      radial-gradient(1.3px 1.3px at 78% 47%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 86% 12%, rgba(242,239,232,.5), transparent),
+      radial-gradient(1.5px 1.5px at 93% 66%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 4% 52%, rgba(242,239,232,.5), transparent),
+      radial-gradient(ellipse 70% 45% at 50% 18%, rgba(224,139,59,.11), transparent 70%),
+      var(--nacht);
+    background-attachment: fixed;
+  }
+
+  /* Funkelnde Sterne */
+  .sterne { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .stern {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--creme);
+    box-shadow: 0 0 6px 1px rgba(242,239,232,.55);
+    opacity: .15;
+    animation: funkeln var(--dauer, 3s) ease-in-out var(--verzoegerung, 0s) infinite;
+  }
+  .stern.warm { background: #ffd9a8; box-shadow: 0 0 7px 1px rgba(224,139,59,.7); }
+  .stern.gross::before, .stern.gross::after {
+    content: ""; position: absolute; left: 50%; top: 50%; background: inherit; border-radius: 2px;
+    transform: translate(-50%, -50%);
+  }
+  .stern.gross::before { width: 600%; height: 1px; }
+  .stern.gross::after { width: 1px; height: 600%; }
+  @keyframes funkeln {
+    0%, 100% { opacity: .12; transform: scale(.7); }
+    50% { opacity: 1; transform: scale(1.25); }
+  }
+
+  main, footer { position: relative; z-index: 1; }
+
+  main {
+    width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1.25rem;
-    text-align: center;
+    padding: 3rem 1.25rem 2rem;
+    animation: erscheinen .9s ease-out both;
   }
-  main { width: 100%; display: flex; flex-direction: column; align-items: center; }
-  .logo {
-    width: min(92vw, 1100px);
-    height: auto;
-    display: block;
+  @keyframes erscheinen { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  .logo { width: min(92vw, 1000px); height: auto; display: block; }
+
+  .linie { width: 3.5rem; height: 3px; border-radius: 3px; background: var(--orange); margin: 1.75rem 0 1.5rem; }
+
+  h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: .02em; }
+  .hinweis {
+    margin: 1rem 0 0;
+    padding: .35rem 1rem;
+    font-size: clamp(.85rem, 1.8vw, .95rem);
+    font-weight: 600;
+    color: var(--orange);
+    border: 1px solid rgba(224,139,59,.45);
+    border-radius: 999px;
   }
-  .linie {
-    width: 3.5rem;
-    height: 3px;
-    border-radius: 3px;
-    background: var(--orange);
-    margin: 1.5rem 0 1.25rem;
+
+  /* Steckbrief */
+  .info {
+    width: min(100%, 40rem);
+    margin-top: 2.5rem;
+    padding: 1.5rem 1.75rem;
+    text-align: left;
+    background: linear-gradient(180deg, var(--nacht-hell), rgba(18,26,48,.55));
+    border: 1px solid var(--linie);
+    border-left: 3px solid var(--orange);
+    border-radius: 14px;
   }
-  p { margin: 0; font-size: clamp(1rem, 2.2vw, 1.25rem); letter-spacing: .04em; color: var(--creme-gedimmt); }
-  .hinweis { margin-top: .75rem; font-size: clamp(.85rem, 1.8vw, 1rem); color: var(--orange); }
-  .info { max-width: 38rem; margin-top: 2.5rem; font-size: clamp(.85rem, 1.8vw, 1rem); line-height: 1.6; letter-spacing: .02em; color: var(--creme-gedimmt); }
-  body { padding-bottom: 4.5rem; }
-  footer { position: absolute; bottom: 1.25rem; font-size: .8rem; color: #5d6070; }
+  .info h2 { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; }
+  .info dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: .6rem 1.5rem; }
+  .info dt { color: var(--orange); font-weight: 600; }
+  .info dd { margin: 0; color: var(--creme-gedimmt); }
+  @media (max-width: 30rem) {
+    .info { padding: 1.25rem; }
+    .info dl { grid-template-columns: 1fr; gap: 0; }
+    .info dd { margin-bottom: .75rem; }
+  }
+
+  footer { padding: 1.5rem 1rem 1.75rem; font-size: .85rem; color: #7b8094; }
 
   /* ---------- Comic rocket ---------- */
-  :root { --ink: #090f1d; --gelb: #ffd23f; --rot: #c8452c; }
   .stage { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
   .pad { position: absolute; right: max(5vw, 20px); bottom: 3.5rem; width: clamp(56px, 9vw, 84px); }
   #rocket { display: block; width: 100%; height: auto; overflow: visible; cursor: pointer; pointer-events: auto; will-change: transform; }
@@ -67,22 +147,34 @@
                 clip-path: polygon(50% 0,60% 18%,80% 5%,78% 28%,100% 30%,85% 48%,100% 65%,78% 70%,82% 95%,60% 82%,50% 100%,40% 82%,18% 95%,22% 70%,0 65%,15% 48%,0 30%,22% 28%,20% 5%,40% 18%);
                 font: 400 clamp(1.1rem, 3vw, 1.7rem)/1 "Bangers", "Comic Sans MS", "Chalkboard SE", Impact, sans-serif;
                 color: var(--ink); letter-spacing: .04em; }
-  @media (prefers-reduced-motion: reduce) { #flame, .wackeln { animation: none; } }
+  @media (prefers-reduced-motion: reduce) { main { animation: none; } .stern { animation: none; opacity: .6; } #flame, .wackeln { animation: none; } }
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="sterne" id="sterne" aria-hidden="true"></div>
   <main>
-    <img class="logo" src="logo.jpg" alt="harpalyke – Logo mit gestreiftem Planeten auf einer Umlaufbahn">
+    <img class="logo" src="logo.jpg" alt="harpalyke – logo with a striped planet on an orbit">
     <div class="linie"></div>
-    <p>Welcome!</p>
+    <h1>Welcome!</h1>
     <p class="hinweis">This page is for testing purposes only.</p>
-    <p class="info">Harpalyke (Jupiter XXII; S/2000 J 5) is a retrograde irregular moon of Jupiter, discovered by Scott S. Sheppard’s team on 23 November 2000. </p> It is named after a daughter of Clymenus in Greek mythology.</p>
+
+    <section class="info" aria-labelledby="info-titel">
+      <h2 id="info-titel">About Harpalyke</h2>
+      <dl>
+        <dt>Designation</dt>
+        <dd>Jupiter XXII (S/2000 J 5)</dd>
+        <dt>Type</dt>
+        <dd>Retrograde irregular moon of Jupiter</dd>
+        <dt>Discovered</dt>
+        <dd>23 November 2000, by Scott S. Sheppard’s team</dd>
+        <dt>Named after</dt>
+        <dd>A daughter of Clymenus in Greek mythology</dd>
+      </dl>
+    </section>
   </main>
   <footer>© 2026 harpalyke</footer>
 
-  <div class="stage" aria-hidden="false">
+  <div class="stage">
     <div class="pad">
       <div class="zaehler" id="zaehler" aria-hidden="true"></div>
       <div class="knall" id="knall" aria-hidden="true"><span>WHOOSH!</span></div>
@@ -103,6 +195,23 @@
   </div>
 
   <script>
+  // Sterne erzeugen: zufällige Position, Größe, Tempo und Verzögerung
+  (function () {
+    var box = document.getElementById("sterne");
+    var anzahl = Math.min(90, Math.round(window.innerWidth * window.innerHeight / 14000));
+    for (var i = 0; i < anzahl; i++) {
+      var s = document.createElement("span"), r = Math.random();
+      var d = 1.5 + Math.random() * 2.5;
+      s.className = "stern" + (r < 0.18 ? " warm" : "") + (r > 0.9 ? " gross" : "");
+      s.style.left = (Math.random() * 100) + "%";
+      s.style.top = (Math.random() * 100) + "%";
+      s.style.width = s.style.height = d + "px";
+      s.style.setProperty("--dauer", (2 + Math.random() * 4) + "s");
+      s.style.setProperty("--verzoegerung", (-Math.random() * 6) + "s");
+      box.appendChild(s);
+    }
+  })();
+
   (function () {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var rocket = document.getElementById("rocket"),
