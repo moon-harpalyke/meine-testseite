@@ -170,6 +170,11 @@
                 clip-path: polygon(50% 0,60% 18%,80% 5%,78% 28%,100% 30%,85% 48%,100% 65%,78% 70%,82% 95%,60% 82%,50% 100%,40% 82%,18% 95%,22% 70%,0 65%,15% 48%,0 30%,22% 28%,20% 5%,40% 18%);
                 font: 400 clamp(1.1rem, 3vw, 1.7rem)/1 var(--comic);
                 color: var(--ink); letter-spacing: .04em; }
+  /* ---------- Astronaut ---------- */
+  .astro { position: absolute; left: 0; top: 0; width: clamp(64px, 9vw, 96px); display: none; will-change: transform; }
+  .astro svg { display: block; width: 100%; height: auto; overflow: visible; animation: schweben 4.5s ease-in-out infinite alternate; }
+  @keyframes schweben { from { transform: translateY(-7px) rotate(-7deg); } to { transform: translateY(7px) rotate(7deg); } }
+  @media (prefers-reduced-motion: reduce) { .astro svg { animation: none; } }
   @media (prefers-reduced-motion: reduce) { main { animation: none; } .stern { animation: none; opacity: .6; } #flame, .wackeln { animation: none; } }
 </style>
 </head>
@@ -198,6 +203,24 @@
   <footer>©2026 <span id="kontakt"><noscript><span class="rtl">ue.ekylaprah@ofni</span></noscript></span></footer>
 
   <div class="stage">
+    <div class="astro" id="astro" aria-hidden="true">
+      <svg viewBox="-10 0 120 130">
+        <g stroke="#090f1d" stroke-linejoin="round" stroke-width="5">
+          <rect x="22" y="52" width="56" height="44" rx="10" fill="#e08b3b"/>
+          <g transform="rotate(12 40 92)"><rect x="33" y="92" width="15" height="28" rx="7" fill="#f2efe8"/><rect x="31" y="113" width="19" height="10" rx="5" fill="#c8452c"/></g>
+          <g transform="rotate(-18 60 92)"><rect x="52" y="92" width="15" height="28" rx="7" fill="#f2efe8"/><rect x="50" y="113" width="19" height="10" rx="5" fill="#c8452c"/></g>
+          <rect x="30" y="50" width="40" height="50" rx="16" fill="#f2efe8"/>
+          <rect x="14" y="54" width="14" height="30" rx="7" fill="#f2efe8" transform="rotate(35 21 56)"/>
+          <circle cx="5" cy="79" r="7" fill="#e08b3b"/>
+          <rect x="72" y="54" width="14" height="30" rx="7" fill="#f2efe8" transform="rotate(-50 79 56)"/>
+          <circle cx="100" cy="74" r="7" fill="#e08b3b"/>
+          <rect x="41" y="62" width="18" height="12" rx="3" fill="#e08b3b" stroke-width="3"/>
+          <circle cx="50" cy="30" r="26" fill="#f2efe8"/>
+          <ellipse cx="50" cy="31" rx="17" ry="14" fill="#8fd0e8"/>
+          <path d="M40 26 Q43 20 50 20" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
     <div class="pad">
       <div class="zaehler" id="zaehler" aria-hidden="true"></div>
       <div class="knall" id="knall" aria-hidden="true"><span>WHOOSH!</span></div>
@@ -264,6 +287,37 @@
       ], { duration: 1100 + Math.random() * 500, easing: "ease-out" }).onfinish = () => p.remove();
     }
 
+    // Astronaut: schwebt endlos durchs Bild, taucht immer an anderer Stelle wieder auf
+    const astro = document.getElementById("astro");
+    async function schweben() {
+      astro.style.display = "block";
+      const r = Math.random;
+      for (;;) {
+        const w = innerWidth, h = innerHeight, gr = astro.offsetWidth, gh = gr * 1.1, rand = 30;
+        const seite = Math.floor(r() * 4);               // 0 links, 1 rechts, 2 oben, 3 unten
+        const px = () => (w - gr) * (0.05 + 0.9 * r()), py = () => (h - gh) * (0.05 + 0.9 * r());
+        let x0, y0, x1, y1;
+        if (seite < 2) {                                 // horizontal: von einer Seite zur gegenüberliegenden
+          x0 = seite === 0 ? -gr - rand : w + rand;  x1 = seite === 0 ? w + rand : -gr - rand;
+          y0 = py();  y1 = py();
+        } else {                                         // vertikal
+          y0 = seite === 2 ? -gh - rand : h + rand;  y1 = seite === 2 ? h + rand : -gh - rand;
+          x0 = px();  x1 = px();
+        }
+        const dauer = Math.max(18000, Math.hypot(x1 - x0, y1 - y0) / (0.035 + r() * 0.015));
+        const a0 = (r() - 0.5) * 80, a1 = a0 + (r() < 0.5 ? -1 : 1) * (30 + r() * 60);
+        astro.style.visibility = "visible";
+        const anim = astro.animate([
+          { transform: `translate(${x0}px,${y0}px) rotate(${a0}deg)` },
+          { transform: `translate(${x1}px,${y1}px) rotate(${a1}deg)` }
+        ], { duration: dauer, easing: "linear", fill: "forwards" });
+        await anim.finished;
+        astro.style.visibility = "hidden";
+        anim.cancel();
+        await wait(2000 + r() * 4000);                   // kurze Pause, dann neuer Durchflug
+      }
+    }
+
     async function launch() {
       if (busy) return;
       busy = true;
@@ -288,6 +342,7 @@
       rocket.classList.remove("zuendung");
       await wait(1200);
       rocket.style.display = "none";
+      if (!reduce) { await wait(1500); schweben(); }
     }
 
     rocket.addEventListener("click", launch);
