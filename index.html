@@ -121,6 +121,8 @@
   }
 
   footer { padding: 1.5rem 1rem 1.75rem; font-size: .85rem; color: #7b8094; }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover, footer a:focus-visible { color: var(--orange); }
 
   /* ---------- Comic rocket ---------- */
   .stage { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 5; }
@@ -170,7 +172,7 @@
       </dl>
     </section>
   </main>
-  <footer>©2026   info@harpalyke.eu </footer>
+  <footer>©2026 <span id="kontakt"><noscript>info [at] harpalyke [dot] eu</noscript></span></footer>
 
   <div class="stage">
     <div class="pad">
@@ -208,6 +210,18 @@
       s.style.setProperty("--verzoegerung", (-Math.random() * 6) + "s");
       box.appendChild(s);
     }
+  })();
+
+  // E-Mail-Adresse erst im Browser zusammensetzen (steht nicht im Quelltext)
+  (function () {
+    var teile = ["ofni", "ekylaprah", "ue"].map(function (t) { return t.split("").reverse().join(""); });
+    var adresse = teile[0] + String.fromCharCode(64) + teile[1] + String.fromCharCode(46) + teile[2];
+    var a = document.createElement("a");
+    a.href = "mailto:" + adresse;
+    a.textContent = adresse;
+    var ziel = document.getElementById("kontakt");
+    ziel.textContent = "";
+    ziel.appendChild(a);
   })();
 
   (function () {
