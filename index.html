@@ -103,24 +103,31 @@
 
   /* Steckbrief */
   .info {
-    width: min(100%, 40rem);
+    /* gleiche Breite wie das Logo; linker Rand beginnt beim "h" im Logo.
+       --h-anteil = Abstand vom linken Logo-Rand bis zum "h" (0 = ganz links, 1 = ganz rechts) */
+    --logo-breite: min(92vw, 1000px);
+    --h-anteil: 0.3148; /* gemessen: "h" beginnt bei 811 von 2576 px */
+    width: var(--logo-breite);
     margin-top: 2.5rem;
-    padding: 1.5rem 1.75rem;
+    padding: 1.5rem 0 1.5rem calc(var(--logo-breite) * var(--h-anteil));
     text-align: left;
     background: transparent;
     border: 0;
   }
+  .info h2, .info dl { max-width: 40rem; }
   .info h2 { margin: 0 0 1rem; font-size: 1.1rem; font-weight: 700; }
   .info dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: .6rem 1.5rem; }
   .info dt { color: var(--orange); font-weight: 600; }
   .info dd { margin: 0; color: var(--creme-gedimmt); }
   @media (max-width: 30rem) {
-    .info { padding: 1.25rem; }
+    .info { padding-top: 1.25rem; padding-bottom: 1.25rem; padding-right: 1.25rem; }
     .info dl { grid-template-columns: 1fr; gap: 0; }
     .info dd { margin-bottom: .75rem; }
   }
 
   footer { padding: 1.5rem 1rem 1.75rem; font-size: .85rem; color: #7b8094; }
+  /* Fallback ohne JavaScript: Text steht rückwärts im Quelltext, wird per CSS richtig herum angezeigt */
+  .rtl { direction: rtl; unicode-bidi: bidi-override; }
   footer a { color: inherit; text-decoration: none; }
   footer a:hover, footer a:focus-visible { color: var(--orange); }
 
@@ -172,7 +179,7 @@
       </dl>
     </section>
   </main>
-  <footer>©2026 <span id="kontakt"><noscript>info [at] harpalyke [dot] eu</noscript></span></footer>
+  <footer>©2026 <span id="kontakt"><noscript><span class="rtl">ue.ekylaprah@ofni</span></noscript></span></footer>
 
   <div class="stage">
     <div class="pad">
