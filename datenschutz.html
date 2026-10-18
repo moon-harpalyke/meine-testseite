@@ -1,265 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090f1d">
-  <title>Privacy policy – harpalyke</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta name="robots" content="noindex">
-  <style>
-    @font-face {
-      font-family: "Nunito";
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: url("fonts/nunito-latin.woff2") format("woff2");
-    }
-    :root { --nacht:#090f1d; --creme:#f2efe8; --creme-gedimmt:#aeb0b8; --orange:#e08b3b; --linie:rgba(242,239,232,.16); }
-    * { box-sizing: border-box; }
-    html { background: var(--nacht); }
-    body {
-      margin: 0; min-height: 100vh; color: var(--creme);
-      font-family: "Nunito", "Avenir Next", "Varela Round", "Segoe UI", system-ui, sans-serif;
-      line-height: 1.6;
-      background:
-        radial-gradient(1.2px 1.2px at 8% 14%, rgba(242,239,232,.8), transparent),
-        radial-gradient(1px 1px at 17% 71%, rgba(242,239,232,.55), transparent),
-        radial-gradient(1.6px 1.6px at 26% 36%, rgba(242,239,232,.7), transparent),
-        radial-gradient(1.4px 1.4px at 43% 9%, rgba(242,239,232,.75), transparent),
-        radial-gradient(1.8px 1.8px at 61% 82%, rgba(224,139,59,.7), transparent),
-        radial-gradient(1.3px 1.3px at 78% 47%, rgba(242,239,232,.7), transparent),
-        radial-gradient(1.5px 1.5px at 93% 66%, rgba(242,239,232,.7), transparent),
-        radial-gradient(ellipse 70% 45% at 50% 18%, rgba(224,139,59,.11), transparent 70%),
-        var(--nacht);
-      background-attachment: fixed;
-    }
-    main { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
-    a { color: var(--orange); text-underline-offset: .2em; }
-    a:focus-visible { outline: 3px dashed var(--orange); outline-offset: 4px; }
-    nav { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 1.25rem 0 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--linie); }
-    section { padding-top: 1.5rem; margin-top: 1.5rem; border-top: 1px solid var(--linie); }
-    h2 { font-size: 1.2rem; font-weight: 700; margin: 0 0 .75rem; }
-    p { margin: 0 0 .85rem; color: var(--creme-gedimmt); }
-    .note { color: #7b8094; font-size: .85rem; margin: 0; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090f1d">
+<title>Privacy Policy – harpalyke</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff2" href="fonts/nunito-latin.woff2" crossorigin>
+<style>
+  /* Lokale Schrift (Latin-Subset, woff2) */
+  @font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("fonts/nunito-latin.woff2") format("woff2");
+  }
+  :root {
+    --nacht: #090f1d;
+    --creme: #f2efe8;
+    --creme-gedimmt: #aeb0b8;
+    --orange: #e08b3b;
+    --linie-farbe: rgba(242,239,232,.16);
+  }
+  * { box-sizing: border-box; }
+  html { height: 100%; background: var(--nacht); }
+  body {
+    min-height: 100%;
+    margin: 0;
+    color: var(--creme);
+    font-family: "Nunito", "Avenir Next", "Varela Round", "Segoe UI", system-ui, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+
+    /* Sternenhimmel + warmer Schein wie auf der Startseite */
+    background:
+      radial-gradient(1.2px 1.2px at 8% 14%, rgba(242,239,232,.8), transparent),
+      radial-gradient(1px 1px at 17% 71%, rgba(242,239,232,.55), transparent),
+      radial-gradient(1.6px 1.6px at 26% 36%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 34% 88%, rgba(242,239,232,.5), transparent),
+      radial-gradient(1.4px 1.4px at 43% 9%, rgba(242,239,232,.75), transparent),
+      radial-gradient(1px 1px at 52% 57%, rgba(242,239,232,.45), transparent),
+      radial-gradient(1.8px 1.8px at 61% 82%, rgba(224,139,59,.7), transparent),
+      radial-gradient(1px 1px at 69% 22%, rgba(242,239,232,.6), transparent),
+      radial-gradient(1.3px 1.3px at 78% 47%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 86% 12%, rgba(242,239,232,.5), transparent),
+      radial-gradient(1.5px 1.5px at 93% 66%, rgba(242,239,232,.7), transparent),
+      radial-gradient(1px 1px at 4% 52%, rgba(242,239,232,.5), transparent),
+      radial-gradient(ellipse 70% 45% at 50% 18%, rgba(224,139,59,.11), transparent 70%),
+      var(--nacht);
+    background-attachment: fixed;
+  }
+
+  /* Funkelnde Sterne */
+  .sterne { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .stern {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--creme);
+    box-shadow: 0 0 6px 1px rgba(242,239,232,.55);
+    opacity: .15;
+    animation: funkeln var(--dauer, 3s) ease-in-out var(--verzoegerung, 0s) infinite;
+  }
+  .stern.warm { background: #ffd9a8; box-shadow: 0 0 7px 1px rgba(224,139,59,.7); }
+  .stern.gross::before, .stern.gross::after {
+    content: ""; position: absolute; left: 50%; top: 50%; background: inherit; border-radius: 2px;
+    transform: translate(-50%, -50%);
+  }
+  .stern.gross::before { width: 600%; height: 1px; }
+  .stern.gross::after { width: 1px; height: 600%; }
+  @keyframes funkeln {
+    0%, 100% { opacity: .12; transform: scale(.7); }
+    50% { opacity: 1; transform: scale(1.25); }
+  }
+
+  main, footer { position: relative; z-index: 1; }
+
+  main {
+    width: 100%;
+    max-width: 44rem;
+    flex: 1;
+    padding: 2rem 1.25rem 2rem;
+    animation: erscheinen .9s ease-out both;
+  }
+  @keyframes erscheinen { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  a { color: var(--orange); text-underline-offset: .2em; }
+  a:focus-visible { outline: 3px dashed var(--orange); outline-offset: 4px; }
+
+  .zurueck { display: inline-block; margin-bottom: 1.5rem; font-weight: 600; text-decoration: none; }
+  .zurueck:hover { text-decoration: underline; }
+
+  h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: .02em; }
+  .linie { width: 3.5rem; height: 3px; border-radius: 3px; background: var(--orange); margin: 1.25rem 0 0; }
+
+  section { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--linie-farbe); }
+  section:first-of-type { margin-top: 1.75rem; }
+  h2 { margin: 0 0 .75rem; font-size: 1.1rem; font-weight: 700; }
+  p { margin: 0 0 .85rem; color: var(--creme-gedimmt); }
+  ul { margin: 0 0 .85rem; padding-left: 1.25rem; color: var(--creme-gedimmt); }
+  li { margin-bottom: .45rem; }
+  li::marker { color: var(--orange); }
+  strong { color: var(--creme); font-weight: 600; }
+  address { font-style: normal; color: var(--creme-gedimmt); margin: 0 0 .85rem; }
+
+  footer { padding: 1.5rem 1rem 1.75rem; font-size: .85rem; color: #7b8094; text-align: center; }
+
+  /* Fallback ohne JavaScript: Text steht rückwärts im Quelltext, wird per CSS richtig herum angezeigt */
+  .rtl { direction: rtl; unicode-bidi: bidi-override; }
+
+  @media (prefers-reduced-motion: reduce) { main { animation: none; } .stern { animation: none; opacity: .6; } }
+</style>
 </head>
 <body>
-<main>
-  <a href="index.html">← harpalyke</a>
-  <nav aria-label="Languages">
-    <a href="#en">English</a><a href="#de">Deutsch</a><a href="#bg">Български</a><a href="#cs">Čeština</a>
-    <a href="#da">Dansk</a><a href="#el">Ελληνικά</a><a href="#es">Español</a><a href="#et">Eesti</a>
-    <a href="#fi">Suomi</a><a href="#fr">Français</a><a href="#ga">Gaeilge</a><a href="#hr">Hrvatski</a>
-    <a href="#hu">Magyar</a><a href="#it">Italiano</a><a href="#lt">Lietuvių</a><a href="#lv">Latviešu</a>
-    <a href="#mt">Malti</a><a href="#nl">Nederlands</a><a href="#pl">Polski</a><a href="#pt">Português</a>
-    <a href="#ro">Română</a><a href="#sk">Slovenčina</a><a href="#sl">Slovenščina</a><a href="#sv">Svenska</a>
-  </nav>
+  <div class="sterne" id="sterne" aria-hidden="true"></div>
 
-  <section id="en" lang="en">
-    <h2>Privacy policy</h2>
-    <p>Controller: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>This website is hosted on GitHub Pages (GitHub Inc., USA). When you visit it, GitHub processes technically necessary data, in particular your IP address, in server log files. The legal basis is Art. 6(1)(f) GDPR (providing the website). Data may be transferred to the USA; see GitHub’s privacy statement for details. This website uses no cookies, analytics or tracking tools, and embeds no external content. If you e-mail me, I use your details only to answer your message.</p>
-    <p>You have the right to access, rectification, erasure, restriction of processing, data portability and objection, and the right to lodge a complaint with a data protection supervisory authority.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+  <main>
+    <a class="zurueck" href="index.html">← Back to Home</a>
 
-  <section id="de" lang="de">
-    <h2>Datenschutzerklärung</h2>
-    <p>Verantwortlich: Tomas Wiemer, E-Mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Diese Website wird bei GitHub Pages (GitHub Inc., USA) gehostet. Beim Aufruf verarbeitet GitHub technisch notwendige Daten, insbesondere Ihre IP-Adresse, in Server-Logfiles. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (Bereitstellung der Website). Dabei kann eine Übermittlung in die USA stattfinden; Näheres steht in der Datenschutzerklärung von GitHub. Diese Website verwendet keine Cookies und keine Analyse- oder Tracking-Tools und bindet keine externen Inhalte ein. Wenn Sie mir eine E-Mail schreiben, verwende ich Ihre Angaben nur, um Ihre Anfrage zu beantworten.</p>
-    <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <h1>Privacy Policy</h1>
+    <div class="linie"></div>
 
-  <section id="bg" lang="bg">
-    <h2>Политика за поверителност</h2>
-    <p>Администратор: Tomas Wiemer, имейл: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Този уебсайт се хоства в GitHub Pages (GitHub Inc., САЩ). При посещение GitHub обработва технически необходими данни, по-специално вашия IP адрес, в лог файловете на сървъра. Правното основание е чл. 6, параграф 1, буква е) от ОРЗД (предоставяне на уебсайта). Възможно е предаване на данни в САЩ; вижте декларацията за поверителност на GitHub. Уебсайтът не използва бисквитки, инструменти за анализ или външно съдържание. Ако ми пишете по имейл, използвам вашите данни само за да ви отговоря.</p>
-    <p>Имате право на достъп, коригиране, изтриване, ограничаване на обработването, преносимост и възражение, както и право да подадете жалба до надзорен орган.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <section aria-labelledby="s1">
+      <h2 id="s1">1. Controller</h2>
+      <p>The controller responsible for data processing on this website is:</p>
+      <address>
+        <strong>Tomas Wiemer</strong><br>
+        E-mail: <span id="kontakt"><noscript><span class="rtl">ue.ekylaprah@ofni</span></noscript></span>
+      </address>
+    </section>
 
-  <section id="cs" lang="cs">
-    <h2>Zásady ochrany osobních údajů</h2>
-    <p>Správce: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Tento web je hostován na GitHub Pages (GitHub Inc., USA). Při návštěvě GitHub zpracovává technicky nezbytné údaje, zejména vaši IP adresu, v logových souborech serveru. Právním základem je čl. 6 odst. 1 písm. f) GDPR (poskytování webu). Může docházet k předávání údajů do USA; podrobnosti viz zásady ochrany osobních údajů GitHubu. Web nepoužívá cookies, analytické nástroje ani externí obsah. Pokud mi napíšete e-mail, použiji vaše údaje pouze k odpovědi.</p>
-    <p>Máte právo na přístup, opravu, výmaz, omezení zpracování, přenositelnost a vznést námitku, a také právo podat stížnost u dozorového úřadu.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <section aria-labelledby="s2">
+      <h2 id="s2">2. Website Hosting (GitHub Pages)</h2>
+      <p>This website is hosted on GitHub Pages by GitHub Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA).</p>
+      <p>When you visit this website, GitHub automatically processes technically necessary data transmitted by your browser (specifically your IP address, date and time of access, and browser type) in server log files.</p>
+      <ul>
+        <li><strong>Legal Basis:</strong> Art. 6(1)(f) GDPR.</li>
+        <li><strong>Legitimate Interest:</strong> Providing a secure, stable, and reliable website.</li>
+        <li><strong>Data Transfer:</strong> Data may be transferred to the USA based on the EU-US Data Privacy Framework, as GitHub Inc. is actively certified under this framework, as well as supplementary Standard Contractual Clauses. For more details, please see GitHub’s Privacy Statement at <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">docs.github.com</a>.</li>
+      </ul>
+    </section>
 
-  <section id="da" lang="da">
-    <h2>Privatlivspolitik</h2>
-    <p>Dataansvarlig: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Websitet hostes på GitHub Pages (GitHub Inc., USA). Ved dit besøg behandler GitHub teknisk nødvendige oplysninger, navnlig din IP-adresse, i serverlogfiler. Retsgrundlaget er artikel 6, stk. 1, litra f, i GDPR (levering af websitet). Overførsel til USA kan forekomme; se GitHubs privatlivspolitik. Websitet bruger ingen cookies, analyseværktøjer eller eksternt indhold. Hvis du skriver til mig på e-mail, bruger jeg kun dine oplysninger til at svare dig.</p>
-    <p>Du har ret til indsigt, berigtigelse, sletning, begrænsning, dataportabilitet og indsigelse samt ret til at klage til en tilsynsmyndighed.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <section aria-labelledby="s3">
+      <h2 id="s3">3. Cookies, Tracking, and External Content</h2>
+      <p>This website is designed to be highly privacy-friendly:</p>
+      <ul>
+        <li><strong>No cookies</strong> are set.</li>
+        <li><strong>No analytics</strong> or tracking tools are used.</li>
+        <li><strong>No external content</strong> (such as Google Fonts, YouTube videos, or third-party scripts) is embedded.</li>
+      </ul>
+    </section>
 
-  <section id="el" lang="el">
-    <h2>Πολιτική απορρήτου</h2>
-    <p>Υπεύθυνος επεξεργασίας: Tomas Wiemer, email: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Αυτός ο ιστότοπος φιλοξενείται στο GitHub Pages (GitHub Inc., ΗΠΑ). Κατά την επίσκεψη, το GitHub επεξεργάζεται τεχνικά απαραίτητα δεδομένα, ιδίως τη διεύθυνση IP σας, σε αρχεία καταγραφής του διακομιστή. Η νομική βάση είναι το άρθρο 6 παρ. 1 στοιχ. στ) του ΓΚΠΔ (παροχή του ιστότοπου). Ενδέχεται να γίνει διαβίβαση στις ΗΠΑ· βλ. τη δήλωση απορρήτου του GitHub. Ο ιστότοπος δεν χρησιμοποιεί cookies, εργαλεία ανάλυσης ούτε εξωτερικό περιεχόμενο. Αν μου στείλετε email, χρησιμοποιώ τα στοιχεία σας μόνο για να σας απαντήσω.</p>
-    <p>Έχετε δικαίωμα πρόσβασης, διόρθωσης, διαγραφής, περιορισμού της επεξεργασίας, φορητότητας και εναντίωσης, καθώς και δικαίωμα καταγγελίας σε εποπτική αρχή.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <section aria-labelledby="s4">
+      <h2 id="s4">4. Contact via E-mail</h2>
+      <p>If you contact me by e-mail, the details you provide (your e-mail address and the content of your message) will be processed exclusively to handle and answer your inquiry.</p>
+      <ul>
+        <li><strong>Legal Basis:</strong> Art. 6(1)(f) GDPR (legitimate interest in responding to user inquiries). If your inquiry relates to entering into a contract, the additional legal basis is Art. 6(1)(b) GDPR.</li>
+        <li><strong>Storage Period:</strong> E-mails and related data will be deleted as soon as your inquiry has been fully resolved, provided that no statutory retention obligations prevent deletion.</li>
+      </ul>
+    </section>
 
-  <section id="es" lang="es">
-    <h2>Política de privacidad</h2>
-    <p>Responsable: Tomas Wiemer, correo electrónico: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Este sitio web está alojado en GitHub Pages (GitHub Inc., EE. UU.). Al visitarlo, GitHub trata datos técnicamente necesarios, en particular su dirección IP, en archivos de registro del servidor. La base jurídica es el art. 6, apdo. 1, letra f) del RGPD (puesta a disposición del sitio). Puede producirse una transferencia a EE. UU.; consulte la declaración de privacidad de GitHub. Este sitio no utiliza cookies, herramientas de análisis ni contenido externo. Si me escribe por correo electrónico, uso sus datos únicamente para responderle.</p>
-    <p>Tiene derecho de acceso, rectificación, supresión, limitación, portabilidad y oposición, así como a presentar una reclamación ante una autoridad de control.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+    <section aria-labelledby="s5">
+      <h2 id="s5">5. Your Rights as a Data Subject</h2>
+      <p>You have the following rights under the GDPR regarding your personal data:</p>
+      <ul>
+        <li><strong>Right of access</strong> (Art. 15 GDPR) – including the right to obtain a copy of the data</li>
+        <li><strong>Right to rectification</strong> (Art. 16 GDPR)</li>
+        <li><strong>Right to erasure</strong> / “Right to be forgotten” (Art. 17 GDPR)</li>
+        <li><strong>Right to restriction of processing</strong> (Art. 18 GDPR)</li>
+        <li><strong>Right to data portability</strong> (Art. 20 GDPR)</li>
+        <li><strong>Right to object to processing</strong> (Art. 21 GDPR)</li>
+      </ul>
+      <p>If any data processing is based on consent provided by you, you have the right to <strong>withdraw your consent at any time</strong> with future effect.</p>
+      <p>You also have the <strong>right to lodge a complaint with a data protection supervisory authority</strong> (Art. 77 GDPR) if you believe that the processing of your personal data violates the GDPR.</p>
+    </section>
+  </main>
 
-  <section id="et" lang="et">
-    <h2>Privaatsuspoliitika</h2>
-    <p>Vastutav töötleja: Tomas Wiemer, e-post: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Veebisaiti majutatakse GitHub Pagesis (GitHub Inc., USA). Külastuse ajal töötleb GitHub tehniliselt vajalikke andmeid, eelkõige teie IP-aadressi, serveri logifailides. Õiguslik alus on isikuandmete kaitse üldmääruse (GDPR) artikli 6 lõike 1 punkt f (veebisaidi pakkumine). Andmeid võidakse edastada USA-sse; vt GitHubi privaatsuspoliitikat. Veebisait ei kasuta küpsiseid, analüüsivahendeid ega väliseid sisuelemente. Kui saadate mulle e-kirja, kasutan teie andmeid ainult vastamiseks.</p>
-    <p>Teil on õigus tutvuda andmetega, neid parandada, kustutada, töötlemist piirata, andmeid üle kanda ja töötlemisele vastu vaielda ning esitada kaebus järelevalveasutusele.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+  <footer>Date: October 2026</footer>
 
-  <section id="fi" lang="fi">
-    <h2>Tietosuojaseloste</h2>
-    <p>Rekisterinpitäjä: Tomas Wiemer, sähköposti: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Sivusto sijaitsee GitHub Pagesissa (GitHub Inc., Yhdysvallat). Vierailun aikana GitHub käsittelee teknisesti välttämättömiä tietoja, erityisesti IP-osoitettasi, palvelimen lokitiedostoissa. Käsittelyn oikeusperuste on yleisen tietosuoja-asetuksen (GDPR) 6 artiklan 1 kohdan f alakohta (sivuston tarjoaminen). Tietoja voidaan siirtää Yhdysvaltoihin; katso GitHubin tietosuojaseloste. Sivusto ei käytä evästeitä, analytiikkatyökaluja eikä ulkoista sisältöä. Jos lähetät minulle sähköpostia, käytän tietojasi vain vastaamiseen.</p>
-    <p>Sinulla on oikeus saada pääsy tietoihin sekä oikaista, poistaa ja rajoittaa niiden käsittelyä, siirtää tiedot järjestelmästä toiseen ja vastustaa käsittelyä. Sinulla on myös oikeus tehdä valitus valvontaviranomaiselle.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
+  <script>
+  // Sterne erzeugen: zufällige Position, Größe, Tempo und Verzögerung
+  (() => {
+    const box = document.getElementById("sterne");
+    const frag = document.createDocumentFragment();
+    const anzahl = Math.min(90, Math.round(innerWidth * innerHeight / 14000));
+    for (let i = 0; i < anzahl; i++) {
+      const s = document.createElement("span"), r = Math.random(), d = 1.5 + Math.random() * 2.5;
+      s.className = "stern" + (r < 0.18 ? " warm" : "") + (r > 0.9 ? " gross" : "");
+      s.style.cssText = `left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${d}px;height:${d}px;` +
+        `--dauer:${2 + Math.random() * 4}s;--verzoegerung:${-Math.random() * 6}s`;
+      frag.appendChild(s);
+    }
+    box.appendChild(frag);
+  })();
 
-  <section id="fr" lang="fr">
-    <h2>Politique de confidentialité</h2>
-    <p>Responsable : Tomas Wiemer, e-mail : <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Ce site est hébergé sur GitHub Pages (GitHub Inc., États-Unis). Lors de votre visite, GitHub traite des données techniquement nécessaires, notamment votre adresse IP, dans des fichiers journaux du serveur. La base juridique est l’art. 6, par. 1, point f) du RGPD (mise à disposition du site). Un transfert vers les États-Unis est possible ; voir la déclaration de confidentialité de GitHub. Ce site n’utilise ni cookies, ni outils d’analyse, ni contenus externes. Si vous m’écrivez par e-mail, j’utilise vos données uniquement pour répondre.</p>
-    <p>Vous avez le droit d’accès, de rectification, d’effacement, de limitation, à la portabilité et d’opposition, ainsi que le droit d’introduire une réclamation auprès d’une autorité de contrôle.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="ga" lang="ga">
-    <h2>Polasaí príobháideachta</h2>
-    <p>Rialaitheoir: Tomas Wiemer, ríomhphost: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Tá an suíomh gréasáin seo ar óstáil ag GitHub Pages (GitHub Inc., Stáit Aontaithe Mheiriceá). Nuair a thugann tú cuairt air, próiseálann GitHub sonraí atá riachtanach ó thaobh na teicneolaíochta de, go háirithe do sheoladh IP, i gcomhaid logála an fhreastalaí. Is é Airteagal 6(1)(f) den GDPR (an suíomh a sholáthar) an bonn dlí. Is féidir sonraí a aistriú chuig na Stáit Aontaithe; féach ráiteas príobháideachta GitHub. Ní úsáideann an suíomh seo fianáin, uirlisí anailíse ná ábhar seachtrach. Má sheolann tú ríomhphost chugam, ní úsáidim do chuid sonraí ach chun freagra a thabhairt.</p>
-    <p>Tá ceart agat rochtain a fháil ar do chuid sonraí, iad a cheartú nó a léirscriosadh, srian a chur ar phróiseáil, iniomparthacht sonraí a iarraidh agus agóid a dhéanamh, chomh maith le gearán a dhéanamh le húdarás maoirseachta.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="hr" lang="hr">
-    <h2>Politika privatnosti</h2>
-    <p>Voditelj obrade: Tomas Wiemer, e-pošta: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Ova se web-stranica nalazi na GitHub Pagesu (GitHub Inc., SAD). Pri posjetu GitHub obrađuje tehnički nužne podatke, osobito vašu IP adresu, u poslužiteljskim zapisnicima. Pravna je osnova članak 6. stavak 1. točka (f) Opće uredbe o zaštiti podataka (GDPR) (pružanje web-stranice). Podaci se mogu prenositi u SAD; pogledajte GitHubovu izjavu o privatnosti. Stranica ne upotrebljava kolačiće, alate za analitiku ni vanjske sadržaje. Ako mi pošaljete e-poruku, vaše podatke koristim samo za odgovor.</p>
-    <p>Imate pravo na pristup, ispravak, brisanje, ograničenje obrade, prenosivost i prigovor te pravo na podnošenje pritužbe nadzornom tijelu.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="hu" lang="hu">
-    <h2>Adatvédelmi tájékoztató</h2>
-    <p>Adatkezelő: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Ez a weboldal a GitHub Pages szolgáltatáson (GitHub Inc., USA) fut. Látogatáskor a GitHub technikailag szükséges adatokat, különösen az Ön IP-címét kezeli a szerver naplófájljaiban. A jogalap a GDPR 6. cikk (1) bekezdés f) pontja (a weboldal biztosítása). Az adatok az Egyesült Államokba is továbbításra kerülhetnek; részletek a GitHub adatvédelmi tájékoztatójában. A weboldal nem használ sütiket, elemzőeszközöket és külső tartalmakat. Ha e-mailt küld nekem, adatait kizárólag a válaszadáshoz használom fel.</p>
-    <p>Önt megilleti a hozzáférés, a helyesbítés, a törlés, az adatkezelés korlátozása, az adathordozhatóság és a tiltakozás joga, valamint panaszt tehet a felügyeleti hatóságnál.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="it" lang="it">
-    <h2>Informativa sulla privacy</h2>
-    <p>Titolare: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Questo sito è ospitato su GitHub Pages (GitHub Inc., USA). Durante la visita GitHub tratta dati tecnicamente necessari, in particolare il Suo indirizzo IP, nei file di log del server. La base giuridica è l’art. 6, par. 1, lett. f) GDPR (messa a disposizione del sito). Può avvenire un trasferimento verso gli USA; consulti l’informativa sulla privacy di GitHub. Il sito non usa cookie, strumenti di analisi né contenuti esterni. Se mi scrive via e-mail, uso i Suoi dati solo per risponderLe.</p>
-    <p>Ha il diritto di accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, nonché di proporre reclamo a un’autorità di controllo.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="lt" lang="lt">
-    <h2>Privatumo politika</h2>
-    <p>Duomenų valdytojas: Tomas Wiemer, el. paštas: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Ši svetainė talpinama „GitHub Pages“ (GitHub Inc., JAV). Apsilankymo metu „GitHub“ tvarko techniškai būtinus duomenis, visų pirma jūsų IP adresą, serverio žurnalo failuose. Teisinis pagrindas – BDAR 6 straipsnio 1 dalies f punktas (svetainės teikimas). Duomenys gali būti perduoti į JAV; žr. „GitHub“ privatumo pranešimą. Svetainėje nenaudojami slapukai, analizės įrankiai ar išorinis turinys. Jei parašysite man el. laišką, jūsų duomenis naudosiu tik atsakydamas.</p>
-    <p>Turite teisę susipažinti su duomenimis, juos ištaisyti, ištrinti, apriboti tvarkymą, perkelti duomenis ir nesutikti su tvarkymu bei pateikti skundą priežiūros institucijai.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="lv" lang="lv">
-    <h2>Privātuma politika</h2>
-    <p>Pārzinis: Tomas Wiemer, e-pasts: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Šī vietne tiek mitināta GitHub Pages (GitHub Inc., ASV). Apmeklējuma laikā GitHub apstrādā tehniski nepieciešamos datus, jo īpaši jūsu IP adresi, servera žurnālfailos. Tiesiskais pamats ir VDAR 6. panta 1. punkta f) apakšpunkts (vietnes nodrošināšana). Dati var tikt nosūtīti uz ASV; skatiet GitHub privātuma paziņojumu. Vietne neizmanto sīkdatnes, analīzes rīkus vai ārēju saturu. Ja rakstāt man e-pastu, es izmantoju jūsu datus tikai atbildei.</p>
-    <p>Jums ir tiesības piekļūt datiem, labot tos, dzēst, ierobežot apstrādi, pārnest datus un iebilst pret apstrādi, kā arī iesniegt sūdzību uzraudzības iestādei.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="mt" lang="mt">
-    <h2>Politika tal-privatezza</h2>
-    <p>Il-kontrollur: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Dan is-sit huwa ospitat fuq GitHub Pages (GitHub Inc., l-Istati Uniti). Meta żżur is-sit, GitHub jipproċessa dejta teknikament meħtieġa, b’mod partikolari l-indirizz IP tiegħek, fil-fajls tal-log tas-server. Il-bażi legali hija l-Artikolu 6(1)(f) tal-GDPR (l-għoti tas-sit). It-trasferiment lejn l-Istati Uniti jista’ jseħħ; ara d-dikjarazzjoni tal-privatezza ta’ GitHub. Is-sit ma juża ebda cookies, għodod tal-analitika jew kontenut estern. Jekk tibgħatli e-mail, nuża d-dejta tiegħek biss biex nirrispondi.</p>
-    <p>Għandek id-dritt ta’ aċċess, rettifika, tħassir, restrizzjoni, portabbiltà u oġġezzjoni, kif ukoll id-dritt li tippreżenta ilment quddiem awtorità superviżorja.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="nl" lang="nl">
-    <h2>Privacyverklaring</h2>
-    <p>Verantwoordelijke: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Deze website wordt gehost op GitHub Pages (GitHub Inc., VS). Bij een bezoek verwerkt GitHub technisch noodzakelijke gegevens, met name uw IP-adres, in serverlogbestanden. De rechtsgrond is art. 6, lid 1, onder f), AVG (het aanbieden van de website). Doorgifte naar de VS is mogelijk; zie de privacyverklaring van GitHub. Deze website gebruikt geen cookies, analysetools of externe inhoud. Als u mij een e-mail stuurt, gebruik ik uw gegevens alleen om te antwoorden.</p>
-    <p>U hebt recht op inzage, rectificatie, wissing, beperking, overdraagbaarheid en bezwaar, en het recht een klacht in te dienen bij een toezichthoudende autoriteit.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="pl" lang="pl">
-    <h2>Polityka prywatności</h2>
-    <p>Administrator: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Ta strona jest hostowana w GitHub Pages (GitHub Inc., USA). Podczas wizyty GitHub przetwarza technicznie niezbędne dane, w szczególności Twój adres IP, w plikach dziennika serwera. Podstawą prawną jest art. 6 ust. 1 lit. f RODO (udostępnianie strony). Dane mogą być przekazywane do USA; szczegóły w polityce prywatności GitHub. Strona nie używa plików cookie, narzędzi analitycznych ani treści zewnętrznych. Jeśli napiszesz do mnie e-mail, wykorzystam Twoje dane wyłącznie do odpowiedzi.</p>
-    <p>Przysługuje Ci prawo dostępu, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych i sprzeciwu oraz prawo wniesienia skargi do organu nadzorczego.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="pt" lang="pt">
-    <h2>Política de privacidade</h2>
-    <p>Responsável: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Este site está alojado no GitHub Pages (GitHub Inc., EUA). Ao visitá-lo, o GitHub trata dados tecnicamente necessários, em especial o seu endereço IP, em ficheiros de registo do servidor. O fundamento jurídico é o art. 6.º, n.º 1, alínea f), do RGPD (disponibilização do site). Pode ocorrer uma transferência para os EUA; consulte a declaração de privacidade do GitHub. Este site não utiliza cookies, ferramentas de análise nem conteúdos externos. Se me enviar um e-mail, utilizo os seus dados apenas para lhe responder.</p>
-    <p>Tem direito de acesso, retificação, apagamento, limitação, portabilidade e oposição, bem como o direito de apresentar reclamação a uma autoridade de controlo.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="ro" lang="ro">
-    <h2>Politica de confidențialitate</h2>
-    <p>Operator: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Acest site este găzduit pe GitHub Pages (GitHub Inc., SUA). La vizitarea site-ului, GitHub prelucrează date necesare din punct de vedere tehnic, în special adresa dvs. IP, în fișiere jurnal ale serverului. Temeiul juridic este art. 6 alin. (1) lit. (f) din RGPD (furnizarea site-ului). Poate avea loc un transfer către SUA; consultați declarația de confidențialitate a GitHub. Acest site nu folosește cookie-uri, instrumente de analiză sau conținut extern. Dacă îmi scrieți un e-mail, folosesc datele dvs. doar pentru a vă răspunde.</p>
-    <p>Aveți dreptul de acces, rectificare, ștergere, restricționare, portabilitate și opoziție, precum și dreptul de a depune o plângere la o autoritate de supraveghere.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="sk" lang="sk">
-    <h2>Zásady ochrany osobných údajov</h2>
-    <p>Prevádzkovateľ: Tomas Wiemer, e-mail: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Táto webová stránka je hostovaná na GitHub Pages (GitHub Inc., USA). Pri návšteve GitHub spracúva technicky nevyhnutné údaje, najmä vašu IP adresu, v logových súboroch servera. Právnym základom je čl. 6 ods. 1 písm. f) GDPR (poskytovanie webovej stránky). Môže dôjsť k prenosu údajov do USA; podrobnosti nájdete v zásadách ochrany osobných údajov GitHubu. Stránka nepoužíva cookies, analytické nástroje ani externý obsah. Ak mi napíšete e-mail, použijem vaše údaje len na odpoveď.</p>
-    <p>Máte právo na prístup, opravu, vymazanie, obmedzenie spracúvania, prenosnosť a vzniesť námietku, ako aj právo podať sťažnosť dozornému orgánu.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="sl" lang="sl">
-    <h2>Politika zasebnosti</h2>
-    <p>Upravljavec: Tomas Wiemer, e-pošta: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>To spletno mesto gostuje na GitHub Pages (GitHub Inc., ZDA). Ob obisku GitHub obdeluje tehnično nujne podatke, zlasti vaš naslov IP, v dnevniških datotekah strežnika. Pravna podlaga je člen 6(1)(f) Splošne uredbe o varstvu podatkov (GDPR) (zagotavljanje spletnega mesta). Podatki se lahko prenašajo v ZDA; glejte izjavo GitHuba o zasebnosti. Spletno mesto ne uporablja piškotkov, analitičnih orodij ali zunanjih vsebin. Če mi pošljete e-pošto, vaše podatke uporabim samo za odgovor.</p>
-    <p>Imate pravico do dostopa, popravka, izbrisa, omejitve obdelave, prenosljivosti in ugovora ter pravico do pritožbe pri nadzornem organu.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-  <section id="sv" lang="sv">
-    <h2>Integritetspolicy</h2>
-    <p>Personuppgiftsansvarig: Tomas Wiemer, e-post: <span class="mail" data-r="ue.ekylaprah@ofni">info [at] harpalyke [dot] eu</span>.</p>
-    <p>Webbplatsen finns på GitHub Pages (GitHub Inc., USA). Vid besöket behandlar GitHub tekniskt nödvändiga uppgifter, särskilt din IP-adress, i serverloggar. Den rättsliga grunden är artikel 6.1 f GDPR (tillhandahållande av webbplatsen). Överföring till USA kan förekomma; se GitHubs integritetspolicy. Webbplatsen använder inga cookies, analysverktyg eller externt innehåll. Om du mejlar mig använder jag dina uppgifter bara för att svara.</p>
-    <p>Du har rätt till tillgång, rättelse, radering, begränsning, dataportabilitet och invändning samt rätt att lämna klagomål till en tillsynsmyndighet.</p>
-    <p class="note" lang="en">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">docs.github.com</a> · 2026-10</p>
-  </section>
-
-</main>
-<script>
-  // Setzt die E-Mail-Adresse erst im Browser zusammen, damit Spam-Bots sie nicht im Quelltext finden
-  document.querySelectorAll('.mail').forEach(function (el) {
-    var addr = el.getAttribute('data-r').split('').reverse().join('');
-    var a = document.createElement('a');
-    a.href = 'mailto:' + addr;
-    a.textContent = addr;
-    el.replaceWith(a);
-  });
-</script>
+  // E-Mail-Adresse erst im Browser zusammensetzen (steht nicht im Quelltext)
+  (() => {
+    const r = t => [...t].reverse().join(""), c = String.fromCharCode;
+    const adresse = r("ofni") + c(64) + r("ekylaprah") + c(46) + r("ue");
+    const a = document.createElement("a");
+    a.href = "mailto:" + adresse;
+    a.textContent = adresse;
+    document.getElementById("kontakt").replaceChildren(a);
+  })();
+  </script>
 </body>
 </html>
