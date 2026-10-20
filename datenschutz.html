@@ -129,7 +129,7 @@
       <h2 id="s1">1. Controller</h2>
       <p>The controller responsible for data processing on this website is:</p>
       <address>
-        <strong>Tomas Wiemer</strong><br>
+        <strong id="name"><noscript><span class="rtl">remeiW samoT</span></noscript></strong><br>
         E-mail: <span id="kontakt"><noscript><span class="rtl">ue.ekylaprah@ofni</span></noscript></span>
       </address>
     </section>
@@ -196,6 +196,12 @@
       frag.appendChild(s);
     }
     box.appendChild(frag);
+  })();
+
+  // Name erst im Browser zusammensetzen (steht nicht im Quelltext)
+  (() => {
+    const r = t => [...t].reverse().join(""), c = String.fromCharCode;
+    document.getElementById("name").textContent = r("samoT") + c(32) + r("remeiW");
   })();
 
   // E-Mail-Adresse erst im Browser zusammensetzen (steht nicht im Quelltext)
